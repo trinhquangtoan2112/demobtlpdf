@@ -1,0 +1,66 @@
+plugins {
+    id 'com.android.application'
+    id 'com.huawei.agconnect'
+}
+
+android {
+    compileSdk 31
+
+    defaultConfig {
+        applicationId "com.example.demobtlpdf"
+        minSdk 23
+        targetSdk 31
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+
+    signingConfigs {
+        config {
+            storeFile file('H:\\SAVEFILE\\demobtlpdf\\CERTIFICATE\\demobtlpdf.jks')
+            storePassword 'Quangtoan2112'
+            keyPassword 'Quangtoan2112'
+            keyAlias 'key3'
+        }
+    }
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.config
+        }
+        release {
+            signingConfig signingConfigs.config
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.appcompat:appcompat:1.3.1'
+    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.1'
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    implementation 'com.huawei.agconnect:agconnect-core:1.5.2.300'
+    implementation group: 'com.huawei.multimedia', name: 'audiokit', version: '1.0.2', ext: 'aar'
+    implementation 'com.huawei.hms:hwid:5.0.5.301'
+    implementation 'com.huawei.hms:audiokit-player:1.1.0.300'
+    implementation 'com.huawei.hms:wallet:4.0.4.301'
+    implementation 'com.huawei.hms:iap:5.0.1.300'
+    implementation 'com.huawei.hms:ads:3.4.47.302'
+    implementation 'com.huawei.hms:scan:2.1.0.300'
+
+
+    implementation 'com.huawei.hms:ads-identifier:3.4.39.302'
+    implementation 'com.huawei.hms:ads-installreferrer:3.4.39.302'
+    implementation 'com.huawei.hms:ads-lite:13.4.39.302'
+    implementation 'com.huawei.hms:scan:1.3.2.300'
+}
